@@ -13,7 +13,7 @@ int green = D5;
 int button = D2;  // red/green toggle button
 int switchPin = D0;  // switch used for on/off
 int switchRed = D1;
-String ledStatus = "off";
+String ledStatus = "red";
 bool switchStatusChanged = true;  // needed to only run on/off loop on change event 
 int switchStatus;
 int currentSwitchVal;
@@ -25,13 +25,16 @@ void setup() {
     pinMode(red, OUTPUT);
     pinMode(green, OUTPUT);
 
-    // turn off light at start to match ledStatus
-    digitalWrite(red, LOW);
+    // set starting status
+    digitalWrite(red, HIGH);
     digitalWrite(green, LOW);
     
     //for switch
     pinMode(switchPin, INPUT);
     pinMode(switchRed, OUTPUT);
+
+    //publish red starting colour at launch
+    Particle.publish("LedColor","red", PRIVATE); 
 }
 
 // loop() runs over and over again, as quickly as it can execute.
