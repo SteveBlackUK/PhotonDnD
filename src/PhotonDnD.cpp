@@ -1,3 +1,9 @@
+/******************************************************/
+//       THIS IS A GENERATED FILE - DO NOT EDIT       //
+/******************************************************/
+
+#include "Particle.h"
+#line 1 "/Users/steve_black_spare/Dropbox/PhotonDnD/src/PhotonDnD.ino"
 /*
  * Project PhotonDnD
  * Description:
@@ -5,9 +11,14 @@
  * Date:
  */
 
+
+
 // EXAMPLE APP - use button to toggle LED light on and off
 
 // global variables
+void setup();
+void loop();
+#line 13 "/Users/steve_black_spare/Dropbox/PhotonDnD/src/PhotonDnD.ino"
 int led = D7;
 int red = D4;
 int green = D5;
@@ -35,6 +46,8 @@ void setup() {
     //for switch
     pinMode(switchPin, INPUT);
     pinMode(switchRed, OUTPUT);
+
+    
 }
 
 // loop() runs over and over again, as quickly as it can execute.

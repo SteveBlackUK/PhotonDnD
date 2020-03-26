@@ -1,6 +1,4 @@
 # PhotonDnD
-<<<<<<< HEAD
-
 A Particle project named PhotonDnD
 
 ## Welcome to your project!
@@ -36,4 +34,6 @@ When you're ready to compile your project, make sure you have the correct Partic
 - Any libraries stored under `lib/<libraryname>/src`
 =======
 Do Not Disturb IoT project for Particle Photon
+
+
 >>>>>>> 0f3a9f57f713f5d02153975d8dc0313932421783
