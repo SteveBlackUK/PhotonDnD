@@ -12,8 +12,8 @@ int red = D4;  // red led on local board so I know what should be showing remote
 int green = D5;
 int button = D2;  // red/green toggle button
 int greenButton = D6; // green button
-int switchPin = D0;  // switch used for on/off
-int switchRed = D1;
+// int switchPin = D0;  // switch used for on/off
+// int switchRed = D1;
 String ledStatus = "red";
 bool switchStatusChanged = true;  // needed to only run on/off loop on change event 
 int switchStatus;
@@ -32,8 +32,8 @@ void setup() {
     digitalWrite(green, LOW);
     
     //for switch
-    pinMode(switchPin, INPUT);
-    pinMode(switchRed, OUTPUT);
+    // pinMode(switchPin, INPUT);
+    // pinMode(switchRed, OUTPUT);
 
     //publish red starting colour at launch
     Particle.publish("LedColor","red", PRIVATE); 
@@ -72,29 +72,29 @@ void loop() {
 
 
     //Switch section for master on/off switch that overrides red/green toggle
-    currentSwitchVal = digitalRead(switchPin);
+    // currentSwitchVal = digitalRead(switchPin);
     
-    //because this is in loop() and we don't want to toggle on/off nonstop, we only want to toggle on/off when the switch changes position.
-    if (currentSwitchVal != switchStatus) {
-        switchStatusChanged = true;
-    }
+    // //because this is in loop() and we don't want to toggle on/off nonstop, we only want to toggle on/off when the switch changes position.
+    // if (currentSwitchVal != switchStatus) {
+    //     switchStatusChanged = true;
+    // }
     
-    if(switchStatusChanged == true) {
-        switchStatus = currentSwitchVal;
-        switchStatusChanged = false;
+    // if(switchStatusChanged == true) {
+    //     switchStatus = currentSwitchVal;
+    //     switchStatusChanged = false;
         
-        if (currentSwitchVal == HIGH)
-        {
-            switchStatus = HIGH; 
-            digitalWrite(switchRed, LOW);
-            //publish power on event to listening devices
-            Particle.publish("MasterPower","MasterOn",PRIVATE);
-        }
-        else
-        {
-            switchStatus = LOW; 
-            digitalWrite(switchRed, HIGH);
-            Particle.publish("MasterPower","MasterOff",PRIVATE);
-        }
-    }
+    //     if (currentSwitchVal == HIGH)
+    //     {
+    //         switchStatus = HIGH; 
+    //         digitalWrite(switchRed, LOW);
+    //         //publish power on event to listening devices
+    //         Particle.publish("MasterPower","MasterOn",PRIVATE);
+    //     }
+    //     else
+    //     {
+    //         switchStatus = LOW; 
+    //         digitalWrite(switchRed, HIGH);
+    //         Particle.publish("MasterPower","MasterOff",PRIVATE);
+    //     }
+    // }
 }
